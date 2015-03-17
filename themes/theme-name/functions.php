@@ -153,3 +153,21 @@ remove_action('wp_head', 'parent_post_rel_link', 10, 0); // remove parent post l
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // remove the next and previous post links
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+/*
+  Cleaning up Navigation classes
+*/
+
+// Reduce nav classes, leaving only 'current-menu-item' and 'menu-item'
+function nav_class_filter( $var ) {
+  return is_array($var) ? array_intersect($var, array('current-menu-item', 'menu-item', 'current-menu-parent', 'current-menu-ancestor')) : '';
+}
+
+add_filter('nav_menu_css_class', 'nav_class_filter', 100, 1);
+ 
+// Add page slug as nav IDs
+function nav_id_filter( $id, $item ) {
+  return 'nav-'.strtolower( str_replace( ' ','-',$item->title ) );
+}
+
+add_filter( 'nav_menu_item_id', 'nav_id_filter', 10, 2 );
