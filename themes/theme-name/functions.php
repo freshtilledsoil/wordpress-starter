@@ -192,3 +192,25 @@ function nav_id_filter( $id, $item ) {
 }
 
 add_filter( 'nav_menu_item_id', 'nav_id_filter', 10, 2 );
+
+/**
+ * Add Custom post types
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * Add Short codes
+ */
+require get_template_directory() . '/inc/custom-short-codes.php';
+
+/**
+ * Load Custom Widgets
+ */
+require get_template_directory() . '/inc/custom-widgets.php';
+
+/**
+ * Load Twitter API functions.
+ */
+require get_template_directory() . '/inc/twitter-api.php';
+
+
