@@ -22,14 +22,6 @@ if ( ! function_exists( 'theme_name_setup' ) ) :
  */
 function theme_name_setup() {
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Theme Name, use a find and replace
-	 * to change 'theme-name' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'theme-name', get_template_directory() . '/languages' );
-
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -109,11 +101,6 @@ function theme_name_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
